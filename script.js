@@ -45,13 +45,11 @@ function operator(elem){
     prevNumber = currentNumber
     currentNumber = "0"
     currentOperator = elem.target.textContent
-    updateFormula()
     update(currentNumber)
 }
 
 function calc()
 {
-    updateFormula()
     switch(currentOperator){
         case "/":
             currentNumber = (parseFloat(prevNumber) / parseFloat(currentNumber)).toString()
@@ -76,9 +74,6 @@ function update(numberToDisplay){
         currentNumber = "0";
         numberToDisplay=currentNumber
     }
-    updateFormula()
-    display.textContent = numberToDisplay
-}
-function updateFormula(){
     formula.textContent = prevNumber + currentOperator + currentNumber
+    display.textContent = numberToDisplay
 }
